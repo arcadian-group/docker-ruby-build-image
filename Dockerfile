@@ -1,4 +1,4 @@
-FROM ruby:2.4
+FROM ruby:2.5.1
 
 LABEL maintainer "Dylan Pinn <dylan@arcadiandigital.com.au>"
 
@@ -9,4 +9,4 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-RUN gem install bundler -v 1.16.1
+RUN gem install bundler -v 1.16.2
