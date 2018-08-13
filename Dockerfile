@@ -3,7 +3,7 @@ FROM ruby:2.4
 LABEL maintainer "Dylan Pinn <dylan@arcadiandigital.com.au>"
 
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update \
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - \
     && apt-get install -y build-essential libpq-dev nodejs cmake libcurl3-dev \
         mysql-client mysql-server redis-server \
     && apt-get clean \
