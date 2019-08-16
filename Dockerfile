@@ -1,4 +1,4 @@
-FROM ruby:2.3.1
+FROM ruby:2.3
 
 LABEL maintainer "Dylan Pinn <dylan@arcadiandigital.com.au>"
 
