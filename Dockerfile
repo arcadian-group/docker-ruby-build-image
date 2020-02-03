@@ -1,6 +1,6 @@
 FROM ruby
 
-LABEL maintainer "Dylan Pinn <dylan@arcadiandigital.com.au>"
+LABEL maintainer "Sean Gilmore <sean@arcadiandigital.com.au>"
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
@@ -19,4 +19,4 @@ RUN apt-get update && apt-get install -y curl apt-transport-https && \
 RUN apt-get update && apt-get install -y python-dev python-pip \
     && pip install awscli
 
-RUN gem install bundler
+RUN gem install bundler -v 2.1.2
