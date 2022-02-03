@@ -16,7 +16,8 @@ RUN apt-get update && apt-get install -y curl apt-transport-https && \
     apt-get update && apt-get install -y yarn
 
 # Install AWS CLI
-RUN apt-get update && apt-get install -y python-dev python-pip \
-    && pip install awscli
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+    unzip awscliv2.zip && \
+    ./aws/install
 
 RUN gem install bundler -v 2.1.2
