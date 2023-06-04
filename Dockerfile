@@ -1,13 +1,11 @@
-FROM ruby:2.5.1
+FROM ruby:2.5.9-buster
 
 LABEL maintainer "Dylan Pinn <dylan@arcadiandigital.com.au>"
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \
     && apt-get install -y build-essential libpq-dev nodejs cmake libcurl3-dev \
-        default-mysql-client default-mysql-server redis-server \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+        default-mysql-client default-mysql-server redis-server
 
 # Global install yarn package manager
 RUN apt-get update && apt-get install -y curl apt-transport-https && \
@@ -18,5 +16,7 @@ RUN apt-get update && apt-get install -y curl apt-transport-https && \
 # Install AWS CLI
 RUN apt-get update && apt-get install -y python-dev python-pip \
     && pip install awscli
+
+RUN  apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN gem install bundler -v 1.16.2
